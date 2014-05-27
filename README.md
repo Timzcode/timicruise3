@@ -31,5 +31,13 @@ Common usage pattern would probably be:
     tim.start()
     for i in my_iter:
         tim.pulse_print() # print current progress
-    tim.stats() # print overall stats
+        # do stuff
+    tim.stop() # print overall stats and reset counter
+
+
+If you just need to monitor start and stop you can use:
+
+    tim.start()
+    # calculation
+    tim.stop() # print elapsed time and reset
 

@@ -51,8 +51,8 @@ class PulseCounter(object):
         self.reset()
 
     def reset(self):
-        self._last = None
-        self.start = None
+        self.last = None
+        self._start = None
         self.n = 0
 
     def stats(self):

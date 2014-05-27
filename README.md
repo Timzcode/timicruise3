@@ -41,3 +41,7 @@ If you just need to monitor start and stop you can use:
     # calculation
     tim.stop() # print elapsed time and reset
 
+Installation
+------------
+
+    pip install tim

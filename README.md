@@ -45,3 +45,9 @@ tim.start()
 # calculation
 tim.stop() # print elapsed time and reset
 ```
+
+
+Installation
+------------
+
+    pip install tim

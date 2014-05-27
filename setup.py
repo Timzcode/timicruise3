@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(name='tim',
-      version='0.1',
+      version='0.2',
       description='TIM: Timed Iteration Monitor',
       author='Olivier Le Thanh Duong',
       long_description=open("README.md", "r").read(),

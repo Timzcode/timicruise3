@@ -11,9 +11,7 @@ from datetime import datetime
 class PulseCounter(object):
 
     def __init__(self):
-        self._start = None
-        self.last = None
-        self.n = 0
+        self.reset()
 
     def pulse(self):
         now = datetime.now()
@@ -45,8 +43,17 @@ class PulseCounter(object):
         print '\r', self.n, ' time', self.timedelta, 'speed:', self.speed,
 
     def start(self):
+        self.reset()
         self._start = datetime.now()
         self.last = datetime.now()
+
+    def stop(self):
+        self.stats()
+        self.reset()
+
+    def reset(self):
+        self._last = None
+        self.start = None
         self.n = 0
 
     def stats(self):
@@ -70,6 +77,7 @@ def get_counter_singleton():
     return counter
 
 
+# FIXME : Find more elegant way to do all of the bellow
 def pulse():
     c = get_counter_singleton()
     c.pulse()
@@ -86,6 +94,11 @@ def stats():
 
 
 def start():
+    c = get_counter_singleton()
+    c.start()
+
+
+def stop():
     c = get_counter_singleton()
     c.start()
 

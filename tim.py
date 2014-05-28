@@ -28,6 +28,8 @@ class PulseCounter(object):
 
     @property
     def speed(self):
+        if self.n == 0:
+            return 'No pulse'
         pulse_sec = (self.timedelta).total_seconds() / self.n
         if pulse_sec > 0.1:
             t = '%s s/pulse' % (pulse_sec)
@@ -56,7 +58,7 @@ class PulseCounter(object):
         self.n = 0
 
     def stats(self):
-        if self.n in (1, 2):  # if == 1 display time between start and now, otherwhise between first and last
+        if self.n <= 2:  # if == 1 display time between start and now, otherwhise between first and last
             print 'Elapsed time', self.timedelta
         else:
             print '\nTotal time: ', self.timedelta, ' Total pulse:', self.n, 'speed:', self.speed

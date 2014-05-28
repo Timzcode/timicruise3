@@ -12,11 +12,12 @@ class PulseCounter(object):
     def __init__(self):
         self.reset()
 
-    def pulse(self):
+    def pulse(self, value=None):
         now = datetime.now()
         if not self._start:
             self._start = now
         self.last = now
+        self.value = value
         self.n += 1
 
     @property
@@ -41,7 +42,7 @@ class PulseCounter(object):
         return t
 
     def printr(self):
-        print '\r', self.n, ' time', self.timedelta, 'speed:', self.speed,
+        print '\r', self.value if self.value else "", self.n, ' time', self.timedelta, 'speed:', self.speed,
 
     def start(self):
         self.reset()
@@ -63,9 +64,9 @@ class PulseCounter(object):
         else:
             print '\nTotal time: ', self.timedelta, ' Total pulse:', self.n, 'speed:', self.speed
 
-    def pulseprint(self):
+    def pulseprint(self, value=None):
         # pulse & print
-        self.pulse()
+        self.pulse(value)
         self.printr()
 
 counter = None
@@ -104,6 +105,6 @@ def stop():
     c.start()
 
 
-def pulseprint():
+def pulseprint(value=None):
     c = get_counter_singleton()
-    c.pulseprint()
+    c.pulseprint(value)

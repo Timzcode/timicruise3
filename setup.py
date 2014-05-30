@@ -8,7 +8,7 @@ except IOError:
     long_description = ""
 
 setup(name='tim',
-      version='0.4',
+      version='0.5',
       description='TIM: Timed Iteration Monitor',
       author='Olivier Le Thanh Duong',
       long_description=long_description,

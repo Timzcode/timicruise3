@@ -45,9 +45,10 @@ class PulseCounter(object):
         print '\r', self.value if self.value else "", self.n, ' time', self.timedelta, 'speed:', self.speed,
 
     def start(self):
+        now = datetime.now()
         self.reset()
-        self._start = datetime.now()
-        self.last = datetime.now()
+        self._start = now
+        self.last = now
 
     def stop(self):
         self.stats()

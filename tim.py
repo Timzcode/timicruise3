@@ -103,7 +103,7 @@ def start():
 
 def stop():
     c = get_counter_singleton()
-    c.start()
+    c.stop()
 
 
 def pulseprint(value=None):
